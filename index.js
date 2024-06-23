@@ -21,6 +21,7 @@ async function main() {
   try {
     chatCompletion = await openai.chat.completions.create({
       messages: [
+        //You can delete the 1.role: "system", 2. systemPrompt section if you only need answers to questions.
         { role: "system", content: systemPrompt },
         { role: "user", content: questions },
       ],
@@ -35,14 +36,8 @@ async function main() {
 }
 
 const data = async () => {
-  const ResponsData = `${await main()}`;
-
-  // jsonString filters the part to be written in json form from the data returned from res
-  // You need to explicitly specify in the Prompt that the returned data is in json format
-  const jsonString = ResponsData.match(/\{[\s\S]*\}/)[0];
-  const jsonObject = JSON.parse(jsonString);
-
-  console.log(jsonObject);
+  const ResponsData = await main();
+  console.log(ResponsData);
 };
 
 data();
