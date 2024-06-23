@@ -24,7 +24,8 @@ This is a simple chatbot that utilizes the OpenAI API to generate responses base
 
    ```
    cd gpt-4-chatbot
-   npm install
+   npm init -y
+   npm install openai dotenv
    ```
 
 ## Usage
@@ -36,7 +37,7 @@ This is a simple chatbot that utilizes the OpenAI API to generate responses base
 3. Run the script:
 
    ```
-   node app.js
+   node index.js
    ```
 
    The script will use the OpenAI API to generate responses based on the provided prompts and system prompt, and the responses will be logged to the console.
